@@ -1,4 +1,4 @@
-numbers = [979, 97, 978, 81, 818, 817]
+numbers = [0, 0, 0]
 # 979 97 978 818 81 817
 
 
@@ -9,10 +9,12 @@ def solution(numbers):
     numSort = sorted(numSort, key=lambda x: x[2]if len(
         x) == 3 else ('0' if len(x) > 3 else x[0]), reverse=True)
     numSort = sorted(numSort, key=lambda x: x[1]if len(
-        x) >= 2 else ('0' if len(x) > 2 else x[0]), reverse=True)
+        x) == 2 else ('0' if len(x) > 2 else x[0]), reverse=True)
     numSort = sorted(numSort, key=lambda x: x[0], reverse=True)
 
     answer = "".join(numSort)
+    if answer[0] == '0':
+        answer = '0'
     return answer
 
 
